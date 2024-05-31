@@ -22,6 +22,25 @@ func (u *User) ClearUserName(){
 	u.lastName = ""
 }
 
+type Admin struct{
+	email string
+	password string
+	User
+}
+
+func NewAdmin(email, password string) Admin{
+	return Admin{
+		email:email,
+		password: password,
+		User: User{
+			firstName: "ADMIN",
+			lastName: "ADMIN",
+			birthdate: "---", 
+			createdAt: time.Now(),
+		},
+	}
+}
+
 func NewUser(firstName, lastName,birthdate string) (*User,error){
     if firstName =="" || lastName == "" || birthdate =="" {
 		 return nil, errors.New("names and birthdate required")
