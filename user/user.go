@@ -41,15 +41,15 @@ func NewAdmin(email, password string) Admin {
 	}
 }
 
-func NewUser(firstName, lastName, birthdate string) (*User, error) {
-	if firstName == "" || lastName == "" || birthdate == "" {
-		return nil, errors.New("names and birthdate required")
-	}
+// func NewUser(firstName, lastName, birthdate string) (*User, error) {
+// 	if firstName == "" || lastName == "" || birthdate == "" {
+// 		return nil, errors.New("names and birthdate required")
+// 	}
 
-	return &User{
-		firstName: firstName,
-		lastName:  lastName,
-		birthdate: birthdate,
-		createdAt: time.Now(),
-	}, nil
-}
+// 	return &User{
+// 		firstName: firstName,
+// 		lastName:  lastName,
+// 		birthdate: birthdate,
+// 		createdAt: time.Now(),
+// 	}, nil
+// }
