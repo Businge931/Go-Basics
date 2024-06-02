@@ -10,6 +10,5 @@ func (text str) log() {
 
 func main() {
 	var name str = "Jim"
-
 	name.log()
 }
