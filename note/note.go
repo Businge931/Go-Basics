@@ -3,6 +3,8 @@ package note
 import (
 	"errors"
 	"fmt"
+	"os"
+	"strings"
 	"time"
 )
 
@@ -17,7 +19,9 @@ func (note Note) Display() {
 }
 
 func (note Note) Save() {
-	
+	fileName := strings.ReplaceAll(note.title," ","_")
+	fileName = strings.ToLower(fileName)
+	os.WriteFile(fileName,)
 }
 
 func New(title, content string) (Note, error) {
