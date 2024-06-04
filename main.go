@@ -12,6 +12,10 @@ import (
 
 // type str string
 
+type saver interface {
+	Save() error
+}
+
 func main() {
 	title, content := getNoteData()
 	todoText := getUserInput("Todo text: ")
@@ -48,6 +52,8 @@ func main() {
 	fmt.Println("Saving the note succeded")
 
 }
+
+func saveData() {}
 
 func getNoteData() (string, string) {
 	title := getUserInput("Note title: ")
