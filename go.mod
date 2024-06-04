@@ -1,5 +1,6 @@
 // module example.com/bank
-module example.com/structs
+// module example.com/structs
+module example.com/notes
 
 
 go 1.22.3
