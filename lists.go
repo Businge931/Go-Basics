@@ -2,6 +2,12 @@ package main
 
 import "fmt"
 
+type Product struct {
+	id    string
+	title string
+	price float64
+}
+
 func main() {
 	// prices := []float64{10.99, 8.99}
 	// fmt.Println(prices)
@@ -9,11 +15,54 @@ func main() {
 	// updatedPRICES:= append(prices,5.6)
 	// fmt.Println(updatedPRICES)
 
-	hobbies :=[3]string{"Chilling","Watching series","Good company"}
+	//**************** EXERCISE SOLUTION **************
+
+	//1)
+	hobbies := [3]string{"Chilling", "Watching series", "Good company"}
 	fmt.Println(hobbies)
 
+	//2)
 	fmt.Println(hobbies[0])
-	fmt.Println(hobbies[1:])
+	fmt.Println(hobbies[1:3])
+
+	//3)
+	mainHobbies := hobbies[0:2]
+	fmt.Println(mainHobbies)
+
+	//4)
+	fmt.Println(cap(mainHobbies))
+	mainHobbies = mainHobbies[1:3]
+	fmt.Println(mainHobbies)
+
+	//5)
+	courseGoals := []string{"Learn Go", "Learn all the basics"}
+	fmt.Println(courseGoals)
+
+	//6)
+	courseGoals[1] = "Learn all details"
+	courseGoals = append(courseGoals, "Master everything")
+	fmt.Println(courseGoals)
+
+	//7)
+	products := []Product{
+		{
+			"first-product",
+			"A first product",
+			12.99,
+		},
+		{
+			"secont-product",
+			"A secont product",
+			12.99,
+		},
+	}
+	fmt.Println(products)
+
+	newProduct := Product{
+		"third-product", "Third product", 15.99,
+	}
+	products =append(products, newProduct)
+	fmt.Println(products)
 
 }
 
