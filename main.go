@@ -31,10 +31,7 @@ type outputtable interface {
 // }
 
 func main() {
-	printSomething(1)
-	printSomething(1.5)
-	printSomething("test")
-	
+
 	title, content := getNoteData()
 	todoText := getUserInput("Todo text: ")
 
@@ -59,7 +56,16 @@ func main() {
 
 }
 
-func printSomething(value interface{}){  // You can also use the "any alias" insted of  interface{}
+func printSomething(value interface{}) { // You can also use the "any alias" insted of  interface{}
+	switch value.(type) {
+	case int:
+		fmt.Println("Integer: ", value)
+	case float64:
+		fmt.Println("Float: ", value)
+	case string:
+		fmt.Println("String: ", value)
+
+	}
 	fmt.Println(value)
 }
 
