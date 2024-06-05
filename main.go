@@ -31,6 +31,9 @@ type outputtable interface {
 // }
 
 func main() {
+	printSomething(1)
+	printSomething(1.5)
+	printSomething("test")
 
 	title, content := getNoteData()
 	todoText := getUserInput("Todo text: ")
@@ -54,6 +57,10 @@ func main() {
 
 	outputData(userNote)
 
+}
+
+func add(a, b interface{}) {
+	return a + b
 }
 
 func printSomething(value interface{}) { // You can also use the "any alias" insted of  interface{}
