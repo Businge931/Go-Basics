@@ -1,139 +1,139 @@
 package main
 
-import (
-	"bufio"
-	"fmt"
-	"os"
-	"strings"
+// import (
+// 	"bufio"
+// 	"fmt"
+// 	"os"
+// 	"strings"
 
-	"example.com/note/note"
-	"example.com/note/todo"
-)
+// 	"example.com/note/note"
+// 	"example.com/note/todo"
+// )
 
-// type str string
+// // type str string
 
-type saver interface {
-	Save() error
-}
-
-// type displayer interface{
-// 	Display()
-// }
-
-type outputtable interface {
-	saver
-	Display()
-}
-
-// type outputtable interface{
+// type saver interface {
 // 	Save() error
+// }
+
+// // type displayer interface{
+// // 	Display()
+// // }
+
+// type outputtable interface {
+// 	saver
 // 	Display()
 // }
 
-func main() {
-	printSomething(1)
-	printSomething(1.5)
-	printSomething("test")
+// // type outputtable interface{
+// // 	Save() error
+// // 	Display()
+// // }
 
-	result := add(1, 2)
-	fmt.Println(result)
+// func main() {
+// 	printSomething(1)
+// 	printSomething(1.5)
+// 	printSomething("test")
 
-	title, content := getNoteData()
-	todoText := getUserInput("Todo text: ")
+// 	result := add(1, 2)
+// 	fmt.Println(result)
 
-	todo, err := todo.New(todoText)
-	if err != nil {
-		fmt.Println(err)
-		return
-	}
+// 	title, content := getNoteData()
+// 	todoText := getUserInput("Todo text: ")
 
-	userNote, err := note.New(title, content)
-	if err != nil {
-		fmt.Println(err)
-		return
-	}
+// 	todo, err := todo.New(todoText)
+// 	if err != nil {
+// 		fmt.Println(err)
+// 		return
+// 	}
 
-	err = outputData(todo)
-	if err != nil {
-		return
-	}
+// 	userNote, err := note.New(title, content)
+// 	if err != nil {
+// 		fmt.Println(err)
+// 		return
+// 	}
 
-	outputData(userNote)
+// 	err = outputData(todo)
+// 	if err != nil {
+// 		return
+// 	}
 
-}
+// 	outputData(userNote)
 
-func add[T int | float64 | string](a, b T) T {
-	return a + b
-}
+// }
 
-func printSomething(value interface{}) { // You can also use the "any alias" insted of  interface{}
-	intVal, ok := value.(int)
+// func add[T int | float64 | string](a, b T) T {
+// 	return a + b
+// }
 
-	if ok {
-		fmt.Println("Integer: ", intVal)
-		return
-	}
+// func printSomething(value interface{}) { // You can also use the "any alias" insted of  interface{}
+// 	intVal, ok := value.(int)
 
-	floatVal, ok := value.(float64)
+// 	if ok {
+// 		fmt.Println("Integer: ", intVal)
+// 		return
+// 	}
 
-	if ok {
-		fmt.Println("Flaot: ", floatVal)
-		return
-	}
+// 	floatVal, ok := value.(float64)
 
-	stringVal, ok := value.(string)
+// 	if ok {
+// 		fmt.Println("Flaot: ", floatVal)
+// 		return
+// 	}
 
-	if ok {
-		fmt.Println("Flaot: ", stringVal)
-		return
-	}
+// 	stringVal, ok := value.(string)
 
-	// switch value.(type) {
-	// case int:
-	// 	fmt.Println("Integer: ", value)
-	// case float64:
-	// 	fmt.Println("Float: ", value)
-	// case string:
-	// 	fmt.Println("String: ", value)
+// 	if ok {
+// 		fmt.Println("Flaot: ", stringVal)
+// 		return
+// 	}
 
-	// }
-}
+// 	// switch value.(type) {
+// 	// case int:
+// 	// 	fmt.Println("Integer: ", value)
+// 	// case float64:
+// 	// 	fmt.Println("Float: ", value)
+// 	// case string:
+// 	// 	fmt.Println("String: ", value)
 
-func outputData(data outputtable) error {
-	data.Display()
-	return saveData(data)
-}
+// 	// }
+// }
 
-func saveData(data saver) error {
-	err := data.Save()
+// func outputData(data outputtable) error {
+// 	data.Display()
+// 	return saveData(data)
+// }
 
-	if err != nil {
-		fmt.Println("Saving the note failed")
-		return err
-	}
+// func saveData(data saver) error {
+// 	err := data.Save()
 
-	fmt.Println("Saving the note succeded")
-	return nil
-}
+// 	if err != nil {
+// 		fmt.Println("Saving the note failed")
+// 		return err
+// 	}
 
-func getNoteData() (string, string) {
-	title := getUserInput("Note title: ")
-	content := getUserInput("Note content: ")
+// 	fmt.Println("Saving the note succeded")
+// 	return nil
+// }
 
-	return title, content
-}
+// func getNoteData() (string, string) {
+// 	title := getUserInput("Note title: ")
+// 	content := getUserInput("Note content: ")
 
-func getUserInput(prompt string) string {
-	fmt.Print(prompt)
-	reader := bufio.NewReader(os.Stdin)
-	text, err := reader.ReadString('\n')
+// 	return title, content
+// }
 
-	if err != nil {
-		return ""
-	}
+// func getUserInput(prompt string) string {
+// 	fmt.Print(prompt)
+// 	reader := bufio.NewReader(os.Stdin)
+// 	text, err := reader.ReadString('\n')
 
-	text = strings.TrimSuffix(text, "\n")
-	text = strings.TrimSuffix(text, "\r")
+// 	if err != nil {
+// 		return ""
+// 	}
 
-	return text
-}
+// 	text = strings.TrimSuffix(text, "\n")
+// 	text = strings.TrimSuffix(text, "\r")
+
+// 	return text
+// }
