@@ -1,35 +1,35 @@
 package main
 
-import "fmt"
+// import "fmt"
 
-func main() {
-	numbers := []int{1, 2, 3}
+// func main() {
+// 	numbers := []int{1, 2, 3}
 
-	double := createTransformer(2)
-	tripple := createTransformer(3)
+// 	double := createTransformer(2)
+// 	tripple := createTransformer(3)
 
-	transformed := transformNumbers(&numbers, func(number int) int { return number * 2 })
+// 	transformed := transformNumbers(&numbers, func(number int) int { return number * 2 })
 
-	doubled := transformNumbers(&numbers, double)
-	trippled := transformNumbers(&numbers, tripple)
+// 	doubled := transformNumbers(&numbers, double)
+// 	trippled := transformNumbers(&numbers, tripple)
 
-	fmt.Println(transformed)
-	fmt.Println(doubled)
-	fmt.Println(trippled)
-}
+// 	fmt.Println(transformed)
+// 	fmt.Println(doubled)
+// 	fmt.Println(trippled)
+// } 
 
-func transformNumbers(numbers *[]int, transform func(int) int) []int {
-	dNumbers := []int{}
+// func transformNumbers(numbers *[]int, transform func(int) int) []int {
+// 	dNumbers := []int{}
 
-	for _, val := range *numbers {
-		dNumbers = append(dNumbers, transform(val))
-	}
+// 	for _, val := range *numbers {
+// 		dNumbers = append(dNumbers, transform(val))
+// 	}
 
-	return dNumbers
-}
+// 	return dNumbers
+// }
 
-func createTransformer(factor int) func(int) int {
-	return func(number int) int {
-		return number * factor
-	}
-}
+// func createTransformer(factor int) func(int) int {
+// 	return func(number int) int {
+// 		return number * factor
+// 	}
+// }
